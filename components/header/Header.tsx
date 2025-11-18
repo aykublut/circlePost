@@ -36,11 +36,7 @@ const Header = () => {
 
   return (
     session && (
-      <div
-        className={
-          pathname === "/auth" ? "hidden" : "relative flex justify-center"
-        }
-      >
+      <div className={"relative flex justify-center"}>
         <div className="w-full font-extralight font-sans absolute text-2xl top-0 left-0 flex py-4 px-5 md:px-7 lg:px-20 text-white z-20 border-b border-white/30 items-center shadow-sm shadow-white/30 hover:backdrop-blur-[2px]  backdrop-blur-[1px] transition-all duration-300 hover:bg-black/20 bg-black/10">
           {/* Logo */}
           <div className="flex-1 flex gap-4 sm:gap-10 lg:gap-8 items-center">
