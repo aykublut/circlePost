@@ -1,7 +1,7 @@
 "use client";
-import { useState } from "react";
+
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Login from "./_components/Login";
 import Register from "./_components/Register";
 import useStore from "@/store/zustand";
