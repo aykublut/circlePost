@@ -3,7 +3,7 @@ import "dotenv/config"; // <- bu satır çok önemli, .env dosyasını otomatik 
 import { defineConfig, env } from "prisma/config";
 
 export default defineConfig({
-  schema: "lib/generated/prisma/schema.prisma",
+  schema: "prisma/schema.prisma",
   migrations: {
     path: "prisma/migrations",
   },
