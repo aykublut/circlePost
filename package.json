@@ -2,15 +2,15 @@
   "name": "blog-app",
   "version": "0.1.0",
   "private": true,
-  "prisma": {
-    "generate": "prisma generate"
-  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
     "postinstall": "prisma generate"
+  },
+  "prisma": {
+    "generate": "prisma generate"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
