@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { easeIn, easeInOut, easeOut, motion } from "framer-motion";
+import { motion } from "motion/react";
 import { Button } from "../ui/button";
 import Image from "next/image";
 import { Input } from "@/components/ui/input";
@@ -13,7 +13,7 @@ import { signOut, useSession } from "next-auth/react";
 const Header = () => {
   const { data: session } = useSession();
   const [onCustomize, setOnCustomize] = useState(false);
-  const [denemeS, setDenemeS] = useState(true);
+
   const handleCustomize = () => {
     if (pathname === "/userProfile") {
       setOnCustomize(false);
