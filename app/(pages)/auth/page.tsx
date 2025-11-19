@@ -16,6 +16,15 @@ const AuthPage = () => {
       animate={{ opacity: nextPage ? 0 : 1 }}
       className="relative min-h-screen  w-full flex items-center justify-center overflow-hidden text-white/90"
     >
+      {/* Arka planda sağda büyük fotoğraf */}
+      <motion.div
+        initial={{ opacity: 0.3, x: 10 }}
+        animate={{ opacity: 1, x: 0 }}
+        className="absolute right-0 md:right-10 hidden top-0 bottom-0 py-5 h-90 md:block"
+      >
+        <Image src="/bennnnn.png" alt="bg-person" width={500} height={900} />
+      </motion.div>
+
       {/* Orta kart */}
       <motion.div
         layout

@@ -81,7 +81,7 @@ export const RealtimeChat = ({
   );
 
   return (
-    <div className="flex flex-col h-full w-full bg-background text-foreground antialiased">
+    <div className="flex flex-col h-full w-full bg-white/40 text-foreground antialiased">
       {/* Messages */}
       <div ref={containerRef} className="flex-1 overflow-y-auto p-4 space-y-4">
         {allMessages.length === 0 ? (
@@ -117,7 +117,7 @@ export const RealtimeChat = ({
       >
         <Input
           className={cn(
-            "rounded-full bg-background text-sm transition-all duration-300",
+            "rounded-full bg-black/80 text-white text-sm transition-all duration-300",
             isConnected && newMessage.trim() ? "w-[calc(100%-36px)]" : "w-full"
           )}
           type="text"
