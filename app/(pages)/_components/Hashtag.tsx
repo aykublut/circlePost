@@ -5,13 +5,13 @@ const Hashtag = () => {
   const hashtags = [
     "#borsa",
     "#imamoglu",
-    "#suriye",
-    "#abd",
-    "#odtukapatilsin",
-    "#t*r*r*stselo",
-    "#oeisrail",
-    "#pasinyan",
-    "#oealmanya",
+    "#dwada",
+    "#dawdwa",
+    "#dwadwa",
+    "#dwadwadaw",
+    "#wadwadwad",
+    "#dwadwad",
+    "#dwadwad",
     "#astor",
   ];
   const { status } = useSession();

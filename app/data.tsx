@@ -1,8 +1,8 @@
 export const posts = [
   {
     id: 1,
-    user: "OÇUM-ÇAK",
-    text: "TUTKU ALEM ADAMIM Dİ Mİ YİA BABAN İŞLETMECİ YA BORSAYI YÜKSELTSİN SHSOHIHĞHIH",
+    user: "awdwadwad",
+    text: "dwadwadawdawdawd",
     avatar:
       "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg",
     image:
@@ -14,8 +14,8 @@ export const posts = [
   {
     id: 2,
     type: "film",
-    user: "ALPEREN",
-    text: "HOCAM BU SINIFTAKİ TEK SAMSUNLU AYKUT YANİ KAĞIDA DELİCİ55 İ AYKUT YAZMIŞ O YÜZDEN (VAYAMINAKOYAYIMYA)",
+    user: "dawdwadwad",
+    text: "wadwadawdwadwa",
     avatar:
       "https://png.pngtree.com/png-vector/20231019/ourmid/pngtree-user-profile-avatar-png-image_10211467.png",
     poster:
