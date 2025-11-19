@@ -16,11 +16,6 @@ const AuthPage = () => {
       animate={{ opacity: nextPage ? 0 : 1 }}
       className="relative min-h-screen  w-full flex items-center justify-center overflow-hidden text-white/90"
     >
-      {/* Arka planda sağda büyük fotoğraf */}
-      <div className="absolute right-0 md:right-40 hidden top-0 bottom-0 py-5 h-90 md:block">
-        <Image src="/bennnnn.png" alt="bg-person" width={500} height={900} />
-      </div>
-
       {/* Orta kart */}
       <motion.div
         layout
@@ -28,7 +23,7 @@ const AuthPage = () => {
         className="relative z-10 w-full max-w-md bg-white/10 backdrop-blur-2xl border border-white/20 shadow-2xl rounded-3xl p-8"
       >
         {/* Login/Register Switch */}
-        <div className="flex justify-center mb-6">
+        <div className="flex justify-center mb-6 ">
           <div className="flex gap-4 bg-white/10 rounded-2xl p-1">
             <button
               onClick={() => setMode("login")}
