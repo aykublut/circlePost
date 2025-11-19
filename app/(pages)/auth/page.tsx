@@ -7,10 +7,15 @@ import Register from "./_components/Register";
 import useStore from "@/store/zustand";
 
 const AuthPage = () => {
-  const { mode, setMode } = useStore();
+  const { mode, setMode, nextPage } = useStore();
 
   return (
-    <div className="relative min-h-screen  w-full flex items-center justify-center overflow-hidden text-white/90">
+    <motion.div
+      key={nextPage ? "next" : "current"}
+      initial={{ opacity: nextPage ? 1 : 0 }}
+      animate={{ opacity: nextPage ? 0 : 1 }}
+      className="relative min-h-screen  w-full flex items-center justify-center overflow-hidden text-white/90"
+    >
       {/* Arka planda sağda büyük fotoğraf */}
       <div className="absolute right-0 md:right-40 top-0 bottom-0 py-5 h-90 md:block">
         <Image src="/bennnnn.png" alt="bg-person" width={500} height={900} />
@@ -59,7 +64,7 @@ const AuthPage = () => {
           {mode === "login" ? <Login /> : <Register />}
         </motion.div>
       </motion.div>
-    </div>
+    </motion.div>
   );
 };
 

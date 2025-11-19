@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { motion } from "motion/react";
+import { easeIn, motion } from "motion/react";
 import { Button } from "../ui/button";
 import Image from "next/image";
 import { Input } from "@/components/ui/input";
@@ -12,6 +12,7 @@ import { useEffect, useState } from "react";
 import { signOut, useSession } from "next-auth/react";
 const Header = () => {
   const { data: session } = useSession();
+  const { status } = useSession();
   const [onCustomize, setOnCustomize] = useState(false);
 
   const handleCustomize = () => {
@@ -35,8 +36,13 @@ const Header = () => {
   ];
 
   return (
-    session && (
-      <div className={"relative flex justify-center"}>
+    status === "authenticated" && (
+      <motion.div
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: easeIn }}
+        className={"relative flex justify-center"}
+      >
         <div className="w-full font-extralight font-sans absolute text-2xl top-0 left-0 flex py-4 px-5 md:px-7 lg:px-20 text-white z-20 border-b border-white/30 items-center shadow-sm shadow-white/30 hover:backdrop-blur-[2px]  backdrop-blur-[1px] transition-all duration-300 hover:bg-black/20 bg-black/10">
           {/* Logo */}
           <div className="flex-1 flex gap-4 sm:gap-10 lg:gap-8 items-center">
@@ -165,7 +171,7 @@ const Header = () => {
             </div>
           </motion.div>
         </div>
-      </div>
+      </motion.div>
     )
   );
 };

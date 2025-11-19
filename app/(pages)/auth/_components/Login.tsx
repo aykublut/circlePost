@@ -20,6 +20,7 @@ import {
 
 import { signIn, useSession } from "next-auth/react";
 import { Spinner } from "@/components/ui/spinner";
+import useStore from "@/store/zustand";
 
 const loginSchema = z.object({
   email: z
@@ -32,6 +33,7 @@ const loginSchema = z.object({
 type LoginFormValues = z.infer<typeof loginSchema>;
 
 const LoginPage = () => {
+  const { setNextPage } = useStore();
   const router = useRouter();
   const { data: session, status } = useSession();
   const [error, setError] = useState("");
@@ -46,6 +48,7 @@ const LoginPage = () => {
   useEffect(() => {
     if (status === "authenticated") {
       router.push("/"); // session oluştuysa yönlendir
+      setNextPage(true);
       setLoading(false);
     }
   }, [status, router]);
@@ -66,7 +69,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div className=" flex items-center justify-center  ">
+    <div className="flex items-center justify-center">
       <div className="rounded px-8 pt-6 pb-8 w-full max-w-md">
         <h1 className="text-2xl font-bold mb-6 text-center">Login</h1>
 
