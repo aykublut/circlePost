@@ -17,7 +17,7 @@ const AuthPage = () => {
       className="relative min-h-screen  w-full flex items-center justify-center overflow-hidden text-white/90"
     >
       {/* Arka planda sağda büyük fotoğraf */}
-      <div className="absolute right-0 md:right-40 top-0 bottom-0 py-5 h-90 md:block">
+      <div className="absolute right-0 md:right-40 hidden top-0 bottom-0 py-5 h-90 md:block">
         <Image src="/bennnnn.png" alt="bg-person" width={500} height={900} />
       </div>
 
@@ -56,7 +56,7 @@ const AuthPage = () => {
         {/* Formlar - Soft büyüme animasyonu */}
         <motion.div
           key={mode} // login/register değiştiğinde yeniden animasyon uygular
-          initial={{ opacity: 0, scale: 0.95 }}
+          initial={{ opacity: 0.8, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.95 }}
           transition={{ duration: 0.5, ease: "easeInOut" }}

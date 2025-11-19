@@ -64,6 +64,7 @@ const LoginPage = () => {
 
     if (res?.error) {
       setError("Invalid email or password");
+      setLoading(false);
     }
     // Eğer res.ok ise, useEffect ile router.push çalışacak
   };
