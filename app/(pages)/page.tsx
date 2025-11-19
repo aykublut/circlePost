@@ -1,8 +1,8 @@
-import News from "./_components/News";
 import LiveChat from "./_components/LiveChat";
 import Post from "./_components/Post";
 import Hashtag from "./_components/Hashtag";
 import Popular from "./_components/Popular";
+import NewsPage from "./_components/News";
 
 export default function Home() {
   return (
@@ -13,7 +13,7 @@ export default function Home() {
             <h3 className="absolute -top-[5px] z-20 bg-black px-2 rounded-2xl font-extralight text-[12px]">
               News
             </h3>
-            <News />
+            <NewsPage />
           </div>
           <div className=" flex-1 flex relative justify-center border-white/50 border-t">
             <h3 className="absolute -top-[5px] z-20 bg-black px-2 rounded-2xl font-extralight text-[12px]">

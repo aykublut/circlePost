@@ -4,10 +4,13 @@ import { useSession } from "next-auth/react";
 
 export default function MessageBox() {
   const { data: session } = useSession();
+  const { status } = useSession();
   return (
-    <RealtimeChat
-      roomName="my-chat-room"
-      username={(session && session?.user?.username) || "kullanici"}
-    />
+    status === "authenticated" && (
+      <RealtimeChat
+        roomName="my-chat-room"
+        username={(session && session?.user?.username) || "kullanici"}
+      />
+    )
   );
 }
