@@ -3,6 +3,7 @@
 import React, { ReactNode, useEffect } from "react";
 import { SessionProvider, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { Spinner } from "@/components/ui/spinner";
 
 interface ProviderProps {
   children: ReactNode;
@@ -17,7 +18,12 @@ const AuthGuard = ({ children }: { children: ReactNode }) => {
     }
   }, [status, router]);
 
-  if (status === "loading") return <p>Loading...</p>;
+  if (status === "loading")
+    return (
+      <div className="flex justify-center bg-black/90 items-center min-h-screen w-full">
+        <Spinner scale={10} />
+      </div>
+    );
 
   return <>{children}</>;
 };

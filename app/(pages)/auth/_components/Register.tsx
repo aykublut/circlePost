@@ -25,6 +25,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import useStore from "@/store/zustand";
+import { toast } from "sonner";
 
 const registerSchema = z.object({
   email: z
@@ -48,6 +49,25 @@ const RegisterPage = () => {
   const { setMode } = useStore();
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const showSitutation = (situtation: any, message: any) => {
+    if (situtation === "success") {
+      toast.success(`${message}Your register has done!`, {
+        description: "You can login with your informations!",
+        action: {
+          label: "Undo",
+          onClick: () => console.log("Undo"),
+        },
+      });
+    } else {
+      toast.error(`${message}. There is an error`, {
+        description: "please get contact with admin",
+        action: {
+          label: "Undo",
+          onClick: () => console.log("Undo"),
+        },
+      });
+    }
+  };
 
   const form = useForm<RegisterFormValues>({
     resolver: zodResolver(registerSchema),
@@ -82,13 +102,15 @@ const RegisterPage = () => {
           result = { message: text };
         }
         setError(result.message || "Registration failed");
+        showSitutation("error", result.message);
       }
 
       if (response.ok === true) {
         setSuccess("Success");
         setTimeout(() => {
           setMode("login");
-        }, 1000);
+        }, 100);
+        showSitutation("success", "");
       }
     } catch (error: any) {
       setError(error.message || "An unexpected error occurred");
@@ -99,8 +121,8 @@ const RegisterPage = () => {
     <div className=" flex items-center justify-center  ">
       <div className="  rounded px-8  pb-8 w-full max-w-md">
         <h1 className="text-2xl font-bold mb-6 text-center">Register</h1>
-        {error && <p className="text-red-500 mb-4">{error}</p>}
-        {success && <p className="text-green-500 mb-4">{success}</p>}
+        {/* {error && <p className="text-red-500 mb-4">{error}</p>}
+        {success && <p className="text-green-500 mb-4">{success}</p>} */}
 
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">

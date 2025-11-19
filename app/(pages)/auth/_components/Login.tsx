@@ -19,6 +19,7 @@ import {
 } from "@/components/ui/form";
 
 import { signIn, useSession } from "next-auth/react";
+import { Spinner } from "@/components/ui/spinner";
 
 const loginSchema = z.object({
   email: z
@@ -34,20 +35,23 @@ const LoginPage = () => {
   const router = useRouter();
   const { data: session, status } = useSession();
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState<boolean>(false);
 
   const form = useForm<LoginFormValues>({
     resolver: zodResolver(loginSchema),
-    defaultValues: { email: "", password: "" },
+    defaultValues: { email: "admin@gmail.com", password: "ugademaraOdin55*" },
   });
 
   // Eğer kullanıcı login ise direkt yönlendir
   useEffect(() => {
     if (status === "authenticated") {
       router.push("/"); // session oluştuysa yönlendir
+      setLoading(false);
     }
   }, [status, router]);
 
   const onSubmit = async (data: LoginFormValues) => {
+    setLoading(true);
     setError("");
     const res = await signIn("credentials", {
       email: data.email,
@@ -108,7 +112,13 @@ const LoginPage = () => {
                 variant="outline"
                 className="cursor-pointer w-full hover:bg-white/80 shadow-sm hover:shadow-white/10 bg-white/30 transition-all"
               >
-                Login
+                {loading ? (
+                  <div className="w-full flex justify-center items-center">
+                    <Spinner scale={5} />
+                  </div>
+                ) : (
+                  "Login"
+                )}
               </Button>
             </div>
           </form>
