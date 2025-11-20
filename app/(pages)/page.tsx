@@ -6,8 +6,8 @@ import NewsPage from "./_components/News";
 
 export default function Home() {
   return (
-    <div className="pt-18 px-20 flex gap-1 min-h-screen text-white">
-      <div className="flex gap-1  w-full border-white/50 border-x">
+    <div className="pt-18 sm:px-20 px-7 flex  gap-1 min-h-screen text-white">
+      <div className="flex gap-1 flex-col lg:flex-row  w-full border-white/50 border-x">
         <div className="flex flex-col gap-1 flex-4 ">
           <div className="flex-1 flex relative justify-center">
             <h3 className="absolute -top-[5px] z-20 bg-black px-2 rounded-2xl font-extralight text-[12px]">

@@ -1,6 +1,9 @@
+"use client";
+import { useSession } from "next-auth/react";
 import React from "react";
 
 const Popular = () => {
+  const { status } = useSession();
   const popularPosts = [
     {
       id: 1,
@@ -40,43 +43,45 @@ const Popular = () => {
   ];
 
   return (
-    <div className="w-full max-w-xl mx-auto p-4">
-      <h3 className="text-white font-bold mb-3">Popüler Gönderiler</h3>
-      <div className="grid grid-cols-2 gap-3">
-        {popularPosts.map((post) => (
-          <div
-            key={post.id}
-            className="bg-gray-800/70 rounded-lg shadow-lg cursor-pointer overflow-hidden hover:scale-105 transition-transform flex flex-col relative"
-          >
-            {/* Görsel alanı */}
-            <div className="w-full h-32 md:h-36 lg:h-40 overflow-hidden relative">
-              <img
-                src={post.image}
-                alt={post.text}
-                className="w-full h-full object-cover"
-              />
+    status === "authenticated" && (
+      <div className="w-full max-w-xl mx-auto p-4">
+        <h3 className="text-white font-bold mb-3">Popüler Gönderiler</h3>
+        <div className="grid grid-cols-2 gap-3">
+          {popularPosts.map((post) => (
+            <div
+              key={post.id}
+              className="bg-gray-800/70 rounded-lg shadow-lg cursor-pointer overflow-hidden hover:scale-105 transition-transform flex flex-col relative"
+            >
+              {/* Görsel alanı */}
+              <div className="w-full h-32 md:h-36 lg:h-40 overflow-hidden relative">
+                <img
+                  src={post.image}
+                  alt={post.text}
+                  className="w-full h-full object-cover"
+                />
 
-              {/* User Avatar, İsmi ve Text - Absolute */}
-              <div className="absolute top-2 left-2 right-2 flex items-center justify-between bg-black/50 px-2 py-1 rounded-lg">
-                <div className="flex items-center gap-2">
-                  <img
-                    src={post.avatar}
-                    alt={post.user}
-                    className="w-6 h-6 rounded-full border border-white"
-                  />
-                  <span className="text-xs text-white font-semibold truncate">
-                    {post.user}
+                {/* User Avatar, İsmi ve Text - Absolute */}
+                <div className="absolute top-2 left-2 right-2 flex items-center justify-between bg-black/50 px-2 py-1 rounded-lg">
+                  <div className="flex items-center gap-2">
+                    <img
+                      src={post.avatar}
+                      alt={post.user}
+                      className="w-6 h-6 rounded-full border border-white"
+                    />
+                    <span className="text-xs text-white font-semibold truncate">
+                      {post.user}
+                    </span>
+                  </div>
+                  <span className="text-xs text-gray-200 truncate">
+                    {post.text}
                   </span>
                 </div>
-                <span className="text-xs text-gray-200 truncate">
-                  {post.text}
-                </span>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
+    )
   );
 };
 

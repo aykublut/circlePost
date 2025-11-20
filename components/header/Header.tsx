@@ -25,8 +25,14 @@ const Header = () => {
     }
   };
   const pathname = usePathname();
+  const [headerShadow, setHeaderShadow] = useState("shadow-sm shadow-white/30");
   useEffect(() => {
     pathname !== "/userProfile" && setOnCustomize(false);
+    if (pathname === "/contact") {
+      setHeaderShadow("shadow-xl shadow-orange-800/70");
+    } else {
+      setHeaderShadow("shadow-sm shadow-white/30");
+    }
   }, [pathname]);
   const router = useRouter();
 
@@ -43,7 +49,9 @@ const Header = () => {
         transition={{ duration: 1, ease: easeIn }}
         className={"relative flex justify-center"}
       >
-        <div className="w-full font-extralight font-sans absolute text-2xl top-0 left-0 flex py-4 px-5 md:px-7 lg:px-20 text-white z-20 border-b border-white/30 items-center shadow-sm shadow-white/30 hover:backdrop-blur-[2px]  backdrop-blur-[1px] transition-all duration-300 hover:bg-black/20 bg-black/10">
+        <div
+          className={`w-full font-extralight font-sans absolute text-2xl top-0 left-0 flex py-4 px-5 md:px-7 lg:px-20 text-white z-20 border-b border-white/30 items-center hover:backdrop-blur-[2px]  ${headerShadow} backdrop-blur-[1px] transition-all duration-300 hover:bg-black/20 bg-black/10`}
+        >
           {/* Logo */}
           <div className="flex-1 flex gap-4 sm:gap-10 lg:gap-8 items-center">
             <motion.div

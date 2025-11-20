@@ -43,7 +43,9 @@ const NewsClient = ({ data }: any) => {
             />
             <div className="w-full h-full bg-black/30 absolute top-0"></div>
           </div>
-          <p className="text-sm text-white/80 ">{selectedNews[1]}</p>
+          <p className="text-sm text-white/80 ">
+            {selectedNews[1].slice(0, 115) + "..."}
+          </p>
         </div>
         <div className="flex-1 flex flex-col gap-1 w-full h-full  break-all">
           <div
